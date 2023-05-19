@@ -1,0 +1,19 @@
+program Practica1Parte1Ejercicio1;
+
+var
+    numero1: integer;
+    numero2: integer;
+
+begin
+    writeln ('Ingrese el primer numero entero: ');
+    readln (numero1);
+    writeln ('Ingrese el segundo numero entero: ');
+    readln (numero2);
+    if (numero1>numero2) then
+        writeln ('El primer numero ingresado es el mayor: ', numero1)
+    else
+        if (numero1<numero2) then
+            writeln ('El segundo numero ingresado es el mayor: ', numero2)
+        else
+            writeln ('Los numeros ingresados son iguales');
+end.
