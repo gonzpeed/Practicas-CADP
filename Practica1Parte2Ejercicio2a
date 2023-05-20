@@ -1,0 +1,18 @@
+program Practica1Parte2Ejercicio2a;
+
+var
+    numero: integer;
+    mayor: integer;
+    i: integer;
+
+begin
+    mayor:=-1;
+    for i:=1 to 10 do
+        begin
+            writeln ('Ingrese un numero: ');
+            readln (numero);
+            if (numero>mayor) then
+                mayor:=numero;
+        end;
+    writeln ('El mayor numero ingresado es: ', mayor);
+end.
