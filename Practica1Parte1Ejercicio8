@@ -1,0 +1,25 @@
+program Practica1Parte1Ejercicio8;
+
+var
+    caracter1: char;
+    caracter2: char;
+    caracter3: char;
+
+begin
+    writeln ('Ingrese el primer caracter: ');
+    readln (caracter1);
+    writeln ('Ingrese el segundo caracter: ');
+    readln (caracter2);
+    writeln ('Ingrese el tercer caracter: ');
+    readln (caracter3);
+    if ((caracter1='a') or (caracter1='e') or (caracter1='i') or (caracter1='o') or (caracter1='u')) then
+        if ((caracter2='a') or (caracter2='e') or (caracter2='i') or (caracter2='o') or (caracter2='u')) then
+            if ((caracter3='a') or (caracter3='e') or (caracter3='i') or (caracter3='o') or (caracter3='u')) then
+                writeln ('Los tres caracteres son vocales')
+            else
+                writeln ('Al menos un caracter no es vocal')
+        else
+            writeln ('Al menos un caracter no es vocal')
+    else
+        writeln ('Al menos un caracter no es vocal');
+end.
