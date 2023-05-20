@@ -1,0 +1,27 @@
+program Practica1Parte2Ejercicio4c;
+
+var
+    numero: integer;
+    minimo1: integer;
+    minimo2: integer;
+
+begin
+    minimo1:=32767;
+    minimo2:=32767;
+    writeln ('Ingrese un numero entero: ');
+    readln (numero);
+    while (numero<>0) do
+        begin
+            if (numero<minimo1) then
+                begin
+                    minimo2:=minimo1;
+                    minimo1:=numero;
+                end
+            else
+                if (numero<minimo2) then
+                    minimo2:=numero;
+            writeln ('Ingrese un numero entero: ');
+            readln (numero);
+        end;
+    writeln ('Los dos numeros minimos leidos son: ', minimo1, ' y ', minimo2);
+end.
