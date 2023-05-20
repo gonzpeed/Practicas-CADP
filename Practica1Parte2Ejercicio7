@@ -1,0 +1,56 @@
+program Practica1Parte2Ejercicio7;
+
+var
+    piloto: string;
+    tiempo: integer;
+    tiempoprimero: integer;
+    nombreprimero: string;
+    tiemposegundo: integer;
+    nombresegundo: string;
+    tiempopenultimo: integer;
+    nombrepenultimo: string;
+    tiempoultimo: integer;
+    nombreultimo: string;
+    i: integer;
+
+begin
+    tiempoprimero:=32767;
+    tiemposegundo:=32767;
+    tiempopenultimo:=-1;
+    tiempoultimo:=-1;
+    for i:=1 to 100 do
+        begin
+            writeln ('Ingrese el nombre del piloto: ');
+            readln (piloto);
+            writeln ('Ingrese el tiempo del piloto en minutos: ');
+            readln (tiempo);
+            if (tiempo<tiempoprimero) then
+                begin
+                    tiemposegundo:=tiempoprimero;
+                    tiempoprimero:=tiempo;
+                    nombresegundo:=nombreprimero;
+                    nombreprimero:=piloto;
+                end
+            else
+                if (tiempo<tiemposegundo) then
+                    begin
+                        tiemposegundo:=tiempo;
+                        nombresegundo:=piloto;
+                    end;
+            if (tiempo>tiempoultimo) then
+                begin
+                    tiempopenultimo:=tiempoultimo;
+                    tiempoultimo:=tiempo;
+                    nombrepenultimo:=nombreultimo;
+                    nombreultimo:=piloto;
+                end
+            else
+                if (tiempo>tiempopenultimo) then
+                    begin
+                        tiempopenultimo:=tiempo;
+                        nombrepenultimo:=piloto;
+                    end;
+        end;
+    writeln ('Los primeros dos pilotos son: ', nombreprimero, ' y ', nombresegundo);
+    writeln ('Los ultimos dos pilotos son: ', nombrepenultimo, ' y ', nombreultimo);
+end.
