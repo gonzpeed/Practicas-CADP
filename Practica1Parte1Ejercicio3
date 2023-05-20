@@ -1,0 +1,30 @@
+program Practica1Parte1Ejercicio3;
+
+var
+    numero1: integer;
+    numero2: integer;
+    numero3: integer;
+
+begin
+    writeln ('Ingrese el primer numero entero: ');
+    readln (numero1);
+    writeln ('Ingrese el segundo numero entero: ');
+    readln (numero2);
+    writeln ('Ingrese el tercer numero entero: ');
+    readln (numero3);
+    if ((numero1>numero2) and (numero1>numero3)) then
+        if (numero2>numero3) then
+            writeln ('El orden descendente es: ', numero1, numero2, numero3)
+        else
+            writeln ('El orden descendente es: ', numero1, numero3, numero2);
+    if ((numero2>numero1) and (numero2>numero3)) then
+        if (numero1>numero3) then
+            writeln ('El orden descendente es: ', numero2, numero1, numero3)
+        else
+            writeln ('El orden descendente es: ', numero2, numero3, numero1);
+    if ((numero3>numero1) and (numero3>numero2)) then
+        if (numero1>numero2) then
+            writeln ('El orden descendente es: ', numero3, numero1, numero2)
+        else
+            writeln ('El orden descendente es: ', numero3, numero2, numero1);
+end.
