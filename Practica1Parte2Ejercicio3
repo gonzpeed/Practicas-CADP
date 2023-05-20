@@ -1,0 +1,24 @@
+program Practica1Parte2Ejercicio3;
+
+var
+    alumno: string;
+    nota: integer;
+    aprobados: integer;
+    notasiete: integer;
+
+begin
+    aprobados:=0;
+    notasiete:=0;
+    repeat
+        writeln ('Ingrese apellido y nombre del alumno: ');
+        readln (alumno);
+        writeln ('Ingrese nota: ');
+        readln (nota);
+        if (nota>=8) then
+            aprobados:=aprobados+1;
+        if (nota=7) then
+            notasiete:=notasiete+1;
+    until (alumno='Zidane Zinedine');
+    writeln ('La cantidad de alumnos aprobados es: ', aprobados);
+    writeln ('La cantidad de alumnos con nota 7 es: ', notasiete);
+end.
