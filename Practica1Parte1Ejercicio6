@@ -1,0 +1,33 @@
+program Practica1Parte1Ejercicio6;
+
+var
+    legajo: integer;
+    promedio: real;
+    alumnos: integer;
+    aprobados: integer;
+    destacados: integer;
+
+begin
+    alumnos:=0;
+    aprobados:=0;
+    destacados:=0;
+    writeln ('Ingrese el legajo del alumno: ');
+    readln (legajo);
+    writeln ('Ingrese el promedio del alumno: ');
+    readln (promedio);
+    while (promedio<>-1) do
+        begin
+            alumnos:=alumnos+1;
+            if (promedio>6.5) then
+                aprobados:=aprobados+1;
+            if ((promedio>8.5) and (legajo<2500)) then
+                destacados:=destacados+1;
+            writeln ('Ingrese el legajo del alumno: ');
+            readln (legajo);
+            writeln ('Ingrese el promedio del alumno: ');
+            readln (promedio);
+        end;
+    writeln ('La cantidad de alumnos leida es: ', alumnos);
+    writeln ('La cantidad de alumnos aprobados: ', aprobados);
+    writeln ('El porcentaje de alumnos destacados es: ', destacados/alumnos*100,'%');
+end.
