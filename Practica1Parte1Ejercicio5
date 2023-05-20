@@ -1,0 +1,30 @@
+program Practica1Parte1Ejercicio5;
+
+var
+    numero1: real;
+    numero2: real;
+    contador: integer;
+    igual: boolean;
+
+begin
+    contador:=0;
+    igual:=false;
+    writeln ('Ingrese el primer numero real: ');
+    readln (numero1);
+    writeln ('Ingrese el segundo numero real: ');
+    readln (numero2);
+    while (contador<9) do
+        begin
+            if (numero2=(2*numero1)) then
+                igual:=true;
+            writeln ('Ingrese el segundo numero real: ');
+            readln (numero2);
+            contador:=contador+1;
+        end;
+    if (numero2=(2*numero1)) then
+                igual:=true;
+    if (igual=true) then
+        writeln ('Se ha encontrado el doble del primer numero')
+    else
+        writeln ('No se ha ingresado el doble del primer numero');
+end.
