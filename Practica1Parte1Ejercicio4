@@ -1,0 +1,17 @@
+program Practica1Parte1Ejercicio4;
+
+var
+    numero1: real;
+    numero2: real;
+
+begin
+    writeln ('Ingrese el primer numero real: ');
+    readln (numero1);
+    writeln ('Ingrese el segundo numero real: ');
+    readln (numero2);
+    while (numero2<>(2*numero1)) do
+        begin
+            writeln ('Ingrese el segundo numero real: ');
+            readln (numero2);
+        end;
+end.
