@@ -1,0 +1,13 @@
+program Practica1Parte1Ejercicio2;
+
+var
+    numero: real;
+
+begin
+    writeln ('Ingrese un numero real: ');
+    readln (numero);
+    if (numero>=0) then
+        writeln ('El valor absoluto del numero ingresado es: ', numero)
+    else
+        writeln ('El valor absoluto del numero ingresado es: ', -1*numero);
+end.
