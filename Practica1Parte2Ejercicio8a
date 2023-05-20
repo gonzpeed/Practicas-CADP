@@ -1,0 +1,27 @@
+program Practica1Parte2Ejercicio8a;
+
+var
+    monto: real;
+    ventadiaria: real;
+    ventamensual: real;
+    i: integer;
+
+begin
+    ventadiaria:=0;
+    ventamensual:=0;
+    for i:=1 to 5 do
+        begin
+            writeln ('Ingrese monto de la venta: ');
+            readln (monto);
+            while (monto<>0) do
+                begin
+                    ventadiaria:=ventadiaria+monto;
+                    writeln ('Ingrese monto de la venta: ');
+                    readln (monto);
+                end;
+            writeln ('El monto de ventas del dia: ', i, ' es: ', ventadiaria);
+            ventamensual:=ventamensual+ventadiaria;
+            ventadiaria:=0;
+        end;
+    writeln ('El monto de ventas mensual es: ', ventamensual);
+end.
