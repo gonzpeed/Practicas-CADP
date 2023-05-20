@@ -1,0 +1,17 @@
+program Practica1Parte2Ejercicio1a;
+
+var
+    numero: integer;
+    suma: integer;
+    i: integer;
+
+begin
+    suma:=0;
+    for i:=1 to 10 do
+        begin
+            writeln ('Ingrese un numero entero');
+            readln (numero);
+            suma:=suma+numero;
+        end;
+    writeln ('La suma de los diez numeros ingresados es: ', suma);
+end.
