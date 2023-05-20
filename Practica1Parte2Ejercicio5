@@ -1,0 +1,25 @@
+program Practica1Parte2Ejercicio5;
+
+var
+    numero: integer;
+    maximo: integer;
+    minimo: integer;
+    suma: integer;
+
+begin
+    suma:=0;
+    maximo:=-1;
+    minimo:=32767;
+    repeat
+        writeln ('Ingrese un numero entero: ');
+        readln (numero);
+        suma:=suma+numero;
+        if (numero>maximo) then
+            maximo:=numero;
+        if (numero<minimo) then
+            minimo:=numero;
+    until (numero=100);
+    writeln ('El numero maximo ingresado es: ', maximo);
+    writeln ('El numero minimo ingresado es: ', minimo);
+    writeln ('La suma de los numeros ingresados es: ', suma);
+end.
