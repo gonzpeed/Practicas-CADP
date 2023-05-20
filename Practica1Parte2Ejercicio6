@@ -1,0 +1,41 @@
+program Practica1Parte2Ejercicio6;
+
+var
+    codigo: integer;
+    precio: real;
+    preciobarato1: real;
+    preciobarato2: real;
+    codigobarato1: integer;
+    codigobarato2: integer;
+    cantidad: integer;
+    i: integer;
+
+begin
+    cantidad:=0;
+    preciobarato1:=32767;
+    preciobarato2:=32767;
+    for i:=1 to 200 do
+        begin
+            writeln ('Ingrese el codigo del producto: ');
+            readln (codigo);
+            writeln ('Ingrese el precio del producto: ');
+            readln (precio);
+            if (precio<preciobarato1) then
+                begin
+                    preciobarato2:=preciobarato1;
+                    preciobarato1:=precio;
+                    codigobarato2:=codigobarato1;
+                    codigobarato1:=codigo;
+                end
+            else
+                if (precio<preciobarato2) then
+                    begin
+                        preciobarato2:=precio;
+                        codigobarato2:= codigo;
+                    end;
+            if ((precio>16) and (codigo mod 2=0)) then
+                cantidad:=cantidad+1;
+        end;
+    writeln ('Los codigos de los dos productos mas baratos son: ', codigobarato1, ' y ', codigobarato2);
+    writeln ('La cantidad de productos de mas de 16 pesos con codigo par es: ', cantidad);
+end.
