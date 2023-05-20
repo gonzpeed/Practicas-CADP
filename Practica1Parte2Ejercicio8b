@@ -1,0 +1,36 @@
+program Practica1Parte2Ejercicio8b;
+
+var
+    monto: real;
+    ventadiaria: real;
+    ventamensual: real;
+    cantidad: integer;
+    mayorventa: integer;
+    i: integer;
+
+begin
+    ventadiaria:=0;
+    ventamensual:=0;
+    cantidad:=0;
+    mayorventa:=-1;
+    for i:=1 to 5 do
+        begin
+            writeln ('Ingrese monto de la venta: ');
+            readln (monto);
+            while (monto<>0) do
+                begin
+                    cantidad:=cantidad+1;
+                    ventadiaria:=ventadiaria+monto;
+                    writeln ('Ingrese monto de la venta: ');
+                    readln (monto);
+                end;
+            writeln ('El monto de ventas del dia: ', i, ' es: ', ventadiaria);
+            ventamensual:=ventamensual+ventadiaria;
+            if (cantidad>mayorventa) then
+                mayorventa:=i;
+            ventadiaria:=0;
+            cantidad:=0;
+        end;
+    writeln ('El monto de ventas mensual es: ', ventamensual);
+    writeln ('El dia de mayor cantidad de ventas fue el dia: ', mayorventa);
+end.
