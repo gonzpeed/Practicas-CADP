@@ -1,0 +1,67 @@
+program Practica2Parte2Ejercicio10;
+
+function vocal (letra: char): boolean;
+var
+    esvocal: boolean;
+begin
+    if ((letra='a') or (letra='e') or (letra='i') or (letra='o') or (letra='u')) then
+        esvocal:=true
+    else
+        esvocal:=false;
+    vocal:=esvocal;
+end;
+
+procedure cumpleA (var cumple: boolean);
+var
+    caracter: char;
+begin
+    writeln ('Ingrese la secuencia A: ');
+    readln (caracter);
+    while ((caracter<>'$') and (cumple=true)) do
+        if (vocal (caracter)=false) then
+            cumple:=false
+        else
+            readln (caracter);
+end;
+
+function consonante (letra: char): boolean;
+var
+    esconsonante: boolean;
+begin
+    if ((letra='a') or (letra='e') or (letra='i') or (letra='o') or (letra='u')) then
+        esconsonante:=false
+    else
+        esconsonante:=true;
+    consonante:=esconsonante;
+end;
+
+procedure cumpleB (var cumple: boolean);
+var
+    caracter: char;
+begin
+    writeln ('Ingrese la secuencia B: ');
+    readln (caracter);
+    while ((caracter<>'#') and (cumple=true)) do
+        if (consonante (caracter)=false) then
+            cumple:=false
+        else
+            readln (caracter);
+end;
+
+var
+    cumple: boolean;
+
+begin
+    cumple:=true;
+    cumpleA (cumple);
+    if (cumple=true) then
+        begin
+            cumpleB (cumple);
+            if (cumple=true) then
+                writeln ('Se cumple con la secuencia')
+            else
+                writeln ('No se cumple con la secuencia B');
+        end
+    else
+        writeln ('No se cumple con la secuencia A');
+end.
