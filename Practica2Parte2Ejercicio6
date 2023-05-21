@@ -1,0 +1,57 @@
+program Practica2Parte2Ejercicio6;
+
+procedure leerproducto (var codigo: integer; var tipo: string; var precio: real);
+begin
+    writeln ('Ingrese codigo, tipo y precio de producto: ');
+    readln (codigo);
+    readln (tipo);
+    readln (precio);
+end;
+
+var
+    codigo: integer;
+    tipo: string;
+    precio: real;
+    codigobarato1: integer;
+    preciobarato1: real;
+    codigobarato2: integer;
+    preciobarato2: real;
+    codigopantalon: integer;
+    preciopantalon: real;
+    promedio: real;
+    sumaprecios: real;
+    i: integer;
+
+begin
+    preciobarato1:=32767;
+    preciobarato2:=32767;
+    preciopantalon:=-1;
+    sumaprecios:=0;
+    for i:=1 to 100 do
+        begin
+            leerproducto (codigo, tipo, precio);
+            if (precio<preciobarato1) then
+                begin
+                    preciobarato2:=preciobarato1;
+                    preciobarato1:=precio;
+                    codigobarato2:=codigobarato1;
+                    codigobarato1:=codigo;
+                end
+            else
+                if (precio<preciobarato2) then
+                    begin
+                        preciobarato2:=precio;
+                        codigobarato2:=codigo;
+                    end;
+            if ((tipo='pantalon') and (precio>preciopantalon)) then
+                begin
+                    preciopantalon:=precio;
+                    codigopantalon:=codigo;
+                end;
+            sumaprecios:=sumaprecios+precio;
+        end;
+    promedio:=sumaprecios/100;
+    writeln ('Los codigos de los dos productos mas baratos son: ', codigobarato1, ' y ', codigobarato2);
+    writeln ('El codigo del pantalon mas caro es: ', codigopantalon);
+    writeln ('El precio promedio es: ', promedio);
+end.
