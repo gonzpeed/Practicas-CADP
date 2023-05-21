@@ -1,0 +1,31 @@
+program Practica2Parte1Ejercicio7;
+
+var
+    suma: integer;
+    cantidad: integer;
+
+function calcularpromedio : real;
+var
+    promedio: real;
+begin
+    if (cantidad=0) then
+        promedio:= -1
+    else
+        promedio:= suma/cantidad;
+    calcularpromedio:=promedio;
+end;
+
+var
+    auxiliar: real;
+
+begin
+    writeln ('Ingrese numerador');
+    readln(suma);
+    writeln ('Ingrese denominador');
+    readln(cantidad);
+    auxiliar:=calcularpromedio;
+    if (auxiliar<>-1) then
+            writeln('El promedio es: ' , auxiliar)
+    else
+        writeln ('Dividir por cero no parece ser una buena idea');
+end.
