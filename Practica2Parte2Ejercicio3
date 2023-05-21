@@ -1,0 +1,28 @@
+program Practica2Parte2Ejercicio3;
+
+procedure sumar (a: integer; b: integer; var c: integer);
+var
+    i: integer;
+    suma: integer;
+begin
+    suma:=0;
+    for i:=a to b do
+        suma:=suma+i;
+    c:=c+suma;
+end;
+
+var
+    result: integer;
+    a: integer;
+    b: integer;
+    ok: boolean;
+begin
+    result:=0;
+    readln(a);
+    readln(b);
+    sumar(a, b, result);
+    writeln ('La suma total es ', result);
+    ok:=((result>=10) and (result<=30));
+    if (not ok) then
+        writeln ('La suma no quedó entre 10 y 30');
+end.
