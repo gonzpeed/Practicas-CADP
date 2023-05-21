@@ -1,0 +1,36 @@
+program Practica2Parte2Ejercicio8;
+
+procedure digitos (numero: integer; var sumapares: integer; var cantidadimpares: integer);
+var
+    digito: integer;
+begin
+    sumapares:=0;
+    cantidadimpares:=0;
+    while (numero<>0) do
+        begin
+            digito:=numero mod 10;
+            if (digito mod 2=0) then
+                sumapares:=sumapares+digito
+            else
+                cantidadimpares:=cantidadimpares+1;
+            numero:=numero div 10;
+        end;
+end;
+
+var
+    numero: integer;
+    sumapares: integer;
+    cantidadimpares: integer;
+
+begin
+    writeln ('Ingrese un numero entero: ');
+    readln (numero);
+    while (numero<>12345) do
+        begin
+            digitos (numero, sumapares, cantidadimpares);
+            writeln ('La suma de los digitos pares del numero ingresado es: ', sumapares);
+            writeln ('La cantidad de digitos impares del numero ingresado es: ', cantidadimpares);
+            writeln ('Ingrese un numero entero');
+            readln (numero);
+        end;
+end.
