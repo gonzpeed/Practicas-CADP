@@ -1,0 +1,70 @@
+program Practica2Parte2Ejercicio9;
+
+procedure alumnos (var inscripcion: integer; var apellido: string; var nombre: string);
+begin    
+    writeln ('Ingrese numero de inscripcion, apellido y nombre del alumno: ');
+    readln (inscripcion);
+    readln (apellido);
+    readln (nombre);
+end;
+
+var
+    inscripcion: integer;
+    apellido: string;
+    nombre: string;
+    chico1: integer;
+    chico2: integer;
+    apellidochico1: string;
+    apellidochico2: string;
+    grande1: integer;
+    grande2: integer;
+    nombregrande1: string;
+    nombregrande2: string;
+    total: integer;
+    pares: integer;
+    porcentaje: real;
+
+begin
+    chico1:=32767;
+    chico2:=32767;
+    grande1:=-1;
+    grande2:=-1;
+    total:=0;
+    pares:=0;
+    repeat
+        total:=total+1;
+        alumnos (inscripcion, apellido, nombre);
+        if (inscripcion<chico1) then
+            begin
+                chico2:=chico1;
+                chico1:=inscripcion;
+                apellidochico2:=apellidochico1;
+                apellidochico1:=apellido;
+            end
+        else
+            if (inscripcion<chico2) then
+                begin
+                    chico2:=inscripcion;
+                    apellidochico2:=apellido;
+                end;
+        if (inscripcion>grande1) then
+            begin
+                grande2:=grande1;
+                grande1:=inscripcion;
+                nombregrande2:=nombregrande1;
+                nombregrande1:=nombre;
+            end
+        else
+            if (inscripcion>grande2) then
+                begin
+                    grande2:=inscripcion;
+                    nombregrande2:= nombre;
+                end;
+        if (inscripcion mod 2=0) then
+            pares:=pares+1;
+    until (inscripcion=1200);
+    porcentaje:=pares/total*100;
+    writeln ('Los apellidos de los dos alumnos con numero de inscripcion mas chico son: ', apellidochico1, ' y ', apellidochico2);
+    writeln ('Los nombres de los dos alumnos con numero de inscripcion mas grande son: ', nombregrande1, ' y ', nombregrande2);
+    writeln ('El porcentaje de alumnos con numero de inscripcion par es: ', porcentaje);
+end.
