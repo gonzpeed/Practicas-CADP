@@ -1,0 +1,36 @@
+program Practica2Parte2Ejercicio5;
+
+function doble (numeroA: integer; numeroB: integer): boolean;
+var
+    esdoble: boolean;
+begin
+    esdoble:= false;
+    if (numeroB=2*numeroA) then
+        esdoble:= true;
+    doble:=esdoble;
+end;
+
+var
+    numeroA: integer;
+    numeroB: integer;
+    cantidadpares: integer;
+    cantidaddoble: integer;
+
+begin
+    cantidadpares:=0;
+    cantidaddoble:=0;
+    writeln ('Ingrese un par de numeros: ');
+    readln (numeroA);
+    readln (numeroB);
+    while ((numeroA<>0) and (numeroB<>0)) do
+        begin
+            cantidadpares:=cantidadpares+1;
+            if (doble (numeroA, numeroB)=true) then
+                cantidaddoble:=cantidaddoble+1;
+            writeln ('Ingrese un par de numeros: ');
+            readln (numeroA);
+            readln (numeroB);
+        end;
+    writeln ('La cantidad de pares de numeros ingresados es: ', cantidadpares);
+    writeln ('La cantidad de pares en las que el segundo numero es el doble que el primero es: ', cantidaddoble);
+end.
