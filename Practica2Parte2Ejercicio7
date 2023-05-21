@@ -1,0 +1,33 @@
+program Practica2Parte2Ejercicio7;
+
+procedure digitos (numero: integer; var cantidad: integer; var suma: integer);
+var
+    digito: integer;
+begin
+    cantidad:=0;
+    suma:=0;
+    while (numero<>0) do
+        begin
+            cantidad:=cantidad+1;
+            digito:=numero mod 10;
+            suma:=suma+digito;
+            numero:=numero div 10;
+        end;
+end;
+
+var
+    totaldigitos: integer;
+    numero: integer;
+    cantidad: integer;
+    suma: integer;
+
+begin
+    totaldigitos:=0;
+    repeat
+            writeln ('Ingrese un numero entero: ');
+            readln (numero);
+            digitos (numero, cantidad, suma);
+            totaldigitos:=totaldigitos+cantidad;
+    until (suma=10);
+    writeln ('La cantidad total de digitos leidos es: ', totaldigitos);
+end.
