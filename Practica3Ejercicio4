@@ -1,0 +1,61 @@
+program Practica3Ejercicio4;
+
+const
+    costominuto=3.40;
+    costomb=1.35;
+
+type
+    cliente=record
+        codigo: integer;
+        cantidadlineas: integer;
+    end;
+    linea=record
+        numerotelefono: integer;
+        cantidadminutos: integer;
+        cantidadmb: integer;
+    end;
+
+procedure lectura (var clientela: linea);
+begin
+    writeln ('Ingrese numero de telefono: ');
+    readln (clientela.numerotelefono);
+    writeln ('Ingrese cantidad de minutos consumidos: ');
+    readln (clientela.cantidadminutos);
+    writeln ('Ingrese cantidad de MB consumidos: ');
+    readln (clientela.cantidadmb);
+end;
+
+procedure cantidadconsumo (clientela: cliente; var totalminutos: integer; var totalmb: integer);
+var
+    clientelineas: linea;
+    i: integer;
+begin
+    for i:=1 to clientela.cantidadlineas do
+        begin
+            lectura (clientelineas);
+            totalminutos:=totalminutos+clientelineas.cantidadminutos;
+            totalmb:=totalmb+clientelineas.cantidadmb;
+        end;
+end;
+
+var
+    i: integer;
+    clientela: cliente;
+    totalminutos: integer;
+    totalmb: integer;
+    totalfactura: real;
+
+begin
+    for i:=1 to 9300 do
+        begin
+            writeln ('Ingrese codigo de cliente: ');
+            readln (clientela.codigo);
+            writeln ('Ingrese cantidad de lineas: ');
+            readln (clientela.cantidadlineas);
+            totalminutos:=0;
+            totalmb:=0;
+            cantidadconsumo (clientela, totalminutos, totalmb);
+            totalfactura:=(totalminutos*costominuto)+(totalmb*costomb);
+            writeln ('El monto total a facturar al cliente: ', clientela.codigo, ' es: ', totalfactura);
+        end;
+end.
