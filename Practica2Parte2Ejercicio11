@@ -1,0 +1,58 @@
+program Practica2Parte2Ejercicio11;
+
+procedure caracteresA (var cumple: boolean; var longitud: integer);
+var
+    caracter: char;
+begin
+    writeln ('Ingrese la secuencia A: ');
+    readln (caracter);
+    while ((caracter<>'%') and (cumple=true)) do
+        if (caracter='$') then
+            cumple:=false
+        else
+            begin
+                longitud:=longitud+1;
+                readln (caracter);
+            end;
+end;
+
+procedure caracteresB (longitud: integer; var cumple: boolean);
+var
+    caracter: char;
+    longitudB: integer;
+    arrobas: integer;
+begin
+    longitudB:=0;
+    arrobas:=0;
+    writeln ('Ingrese la secuencia B: ');
+    readln (caracter);
+    while (caracter<>'*') do
+        begin
+            longitudB:=longitudB+1;
+            if (caracter='@') then
+                arrobas:=arrobas+1;
+            readln (caracter);
+        end;
+    if ((longitudB<>longitud) or (arrobas<3)) then
+        cumple:=false;
+end;
+
+var
+    cumple: boolean;
+    longitud: integer;
+
+begin
+    cumple:=true;
+    longitud:=0;
+    caracteresA (cumple, longitud);
+    if (cumple=true) then
+        begin
+            caracteresB (longitud, cumple);
+            if (cumple=true) then
+                writeln ('Se cumple con la secuencia')
+            else
+                writeln ('No se cumple con la secuencia B');
+        end
+    else
+        writeln ('No se cumple con la secuencia A');
+end.
