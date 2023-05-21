@@ -1,0 +1,23 @@
+program Practica2Parte1Ejercicio6;
+
+procedure numeropar;
+var
+    numero: integer;
+    maximo: integer;
+begin
+    maximo:=-1;
+    writeln ('Ingrese un numero entero');
+    readln (numero);
+    while (numero>0) do
+        begin
+            if ((numero mod 2=0) and (numero>maximo)) then
+                    maximo:=numero;
+            writeln ('Ingrese un numero entero');
+            readln (numero);
+        end;
+    writeln ('El numero par mas alto ingresado es: ', maximo);
+end;
+
+begin
+    numeropar;
+end.
