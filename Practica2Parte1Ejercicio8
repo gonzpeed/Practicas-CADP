@@ -1,0 +1,33 @@
+program Practica2Parte1Ejercicio8;
+
+procedure leer;
+var 
+    letra: char;
+function analizarletra: integer;
+begin
+    case letra of
+        'a'..'z': analizarletra:=1;
+        'A'..'Z': analizarletra:=2;
+        '0'..'9': analizarletra:=3;
+    else
+        analizarletra:=4;
+    end;
+end;
+begin 
+    writeln ('Ingrese un caracter: ');
+    readln (letra);
+    if (analizarletra=1) then
+        writeln ('Se trata de una minuscula') 
+    else
+        if (analizarletra=2) then 
+            writeln ('Se trata de una mayuscula') 
+        else
+            if (analizarletra=3) then 
+                writeln ('Se trata de un numero') 
+            else
+                writeln ('Se trata de un caracter especial');
+end;
+
+begin
+    leer;
+end.
