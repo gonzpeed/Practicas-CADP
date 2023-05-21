@@ -1,0 +1,76 @@
+program Practica3Ejercicio3;
+
+const
+    unesco=23.435;
+
+type
+    string20=string[20];
+    escuela=record
+        cue: integer;
+        nombre: string20;
+        docentes: integer;
+        alumnos: integer;
+        localidad: string20;
+    end;
+
+procedure leer (var primarias: escuela);
+begin
+    writeln ('Ingrese codigo unico de establecimiento: ');
+    readln (primarias.cue);
+    writeln ('Ingrese nombre del establecimiento: ');
+    readln (primarias.nombre);
+    writeln ('Ingrese cantidad de docentes: ');
+    readln (primarias.docentes);
+    writeln ('Ingrese cantidad de alumnos: ');
+    readln (primarias.alumnos);
+    writeln ('Ingrese localidad del establecimiento: ');
+    readln (primarias.localidad);
+end;
+
+function proporcion (primarias: escuela): real;
+begin
+    proporcion:=primarias.alumnos/primarias.docentes;
+end;
+
+var
+    i: integer;
+    primarias: escuela;
+    superior: integer;
+    pro: real;
+    mejorrelacion1: real;
+    mejorrelacion2: real;
+    mejorcue1: integer;
+    mejorcue2: integer;
+    mejornombre1: string20;
+    mejornombre2: string20;
+    
+begin
+    superior:=0;
+    mejorrelacion1:=1000000;
+    mejorrelacion2:=1000000;
+    for i:=1 to 2400 do
+        begin
+            leer (primarias);
+            pro:=proporcion(primarias);
+            if ((primarias.localidad='la plata') and (pro>unesco)) then
+                superior:=superior+1;
+            if (pro<mejorrelacion1) then
+                begin
+                    mejorrelacion2:=mejorrelacion1;
+                    mejorrelacion1:=pro;
+                    mejorcue2:=mejorcue1;
+                    mejorcue1:=primarias.cue;
+                    mejornombre2:=mejornombre1;
+                    mejornombre1:=primarias.nombre;
+                end
+            else
+                if (pro<mejorrelacion2) then
+                    begin
+                        mejorrelacion2:=pro;
+                        mejorcue2:=primarias.cue;
+                        mejornombre2:=primarias.nombre;
+                    end;
+        end;
+    writeln ('La cantidad de escuelas de La Plata con una relacion superior a la sugerida es: ', superior);
+    writeln ('El CUE y nombre de las dos escuelas con mejor relacion son: ', mejorcue1, ', ', mejornombre1, ' y ', mejorcue2, ', ', mejornombre2);
+end.
