@@ -1,0 +1,39 @@
+program Practica3Ejercicio2;
+
+type
+    fecha=record
+        dia: integer;
+        mes: integer;
+        ano: integer;
+    end;
+
+procedure leerfecha (var fec: fecha);
+begin
+    writeln ('Ingrese dia de casamiento: ');
+    readln (fec.dia);
+    writeln ('Ingrese mes de casamiento: ');
+    readln (fec.mes);
+    writeln ('Ingrese año de casamiento: ');
+    readln (fec.ano);
+end;
+
+var
+    f: fecha;
+    cantidadverano: integer;
+    cantidad10: integer;
+
+begin
+    cantidadverano:=0;
+    cantidad10:=0;
+    leerfecha (f);
+    while (f.ano=2019) do
+        begin
+            if ((f.mes=1) or (f.mes=2) or (f.mes=3)) then
+                cantidadverano:=cantidadverano+1;
+            if ((f.dia>=1) and (f.dia<=10)) then
+                cantidad10:=cantidad10+1;
+            leerfecha (f);
+        end;
+    writeln ('La cantidad de casamientos realizados durante el verano fue: ', cantidadverano);
+    writeln ('La cantidad de casamientos realizados en los primeros diez dias de cada mes es: ', cantidad10);
+end.
