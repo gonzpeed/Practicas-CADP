@@ -1,0 +1,64 @@
+program Practica2Parte2Ejercicio12b;
+
+const
+    precio=320;
+
+procedure rendimiento (hectareas: integer; zona: integer; var total: real);
+begin
+    case zona of
+        1: total:=hectareas*6*precio;
+        2: total:=hectareas*2.6*precio;
+        3: total:=hectareas*1.4*precio;
+    end;
+end;
+
+var
+    localidad: string;
+    hectareas: integer;
+    zona: integer;
+    total: real;
+    cantidad: integer;
+    mayor: real;
+    menor: real;
+    localidadmayor: string;
+    localidadmenor: string;
+    sumarendimientos: real;
+    cantidadcampos: integer;
+    promedio: real;
+
+begin
+    cantidad:=0;
+    mayor:=-1;
+    menor:=1000000;
+    sumarendimientos:=0;
+    cantidadcampos:=0;
+    repeat
+        writeln ('Ingrese localidad: ');
+        readln (localidad);
+        writeln ('Ingrese cantidad de hectareas sembradas: ');
+        readln (hectareas);
+        writeln ('Ingrese tipo de zona de siembra: ');
+        readln (zona);
+        rendimiento (hectareas, zona, total);
+        if ((localidad='tres de febrero') and (total>10000)) then   
+            cantidad:=cantidad+1;
+        if (total>mayor) then
+            begin
+                mayor:=total;
+                localidadmayor:=localidad;
+            end;
+        if (total<menor) then
+            begin
+                menor:=total;
+                localidadmenor:=localidad;
+            end;
+        sumarendimientos:=sumarendimientos+total;
+        total:=0;
+        cantidadcampos:=cantidadcampos+1;
+    until ((localidad='saladillo') and (hectareas=900));
+    promedio:=sumarendimientos/cantidadcampos;
+    writeln ('La cantidad de campos de Tres de Febrero con rendimiento mayor a 10000: ', cantidad);
+    writeln ('La localidad del campo con mayor rendimiento es: ', localidadmayor);
+    writeln ('La localidad del campo con menor rendimiento es: ', localidadmenor);
+    writeln ('El rendimiento promedio es: ', promedio);
+end.
