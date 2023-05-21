@@ -1,0 +1,27 @@
+program Practica2Parte2Ejercicio12a;
+
+procedure rendimiento (hectareas: integer; zona: integer; precio: real; var total: real);
+begin
+    case zona of
+        1: total:=hectareas*6*precio;
+        2: total:=hectareas*2.6*precio;
+        3: total:=hectareas*1.4*precio;
+    end;
+end;
+
+var
+    hectareas: integer;
+    zona: integer;
+    precio: real;
+    total: real;
+
+begin
+    writeln ('Ingrese cantidad de hectareas sembradas: ');
+    readln (hectareas);
+    writeln ('Ingrese tipo de zona de siembra: ');
+    readln (zona);
+    writeln ('Ingrese precio de la tonelada de soja: ');
+    readln (precio);
+    rendimiento (hectareas, zona, precio, total);
+    writeln ('El rendimiento esperado de la plantacion es: ', total);
+end.
