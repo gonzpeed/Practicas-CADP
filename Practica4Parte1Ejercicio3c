@@ -1,0 +1,41 @@
+program Practica4Parte1Ejercicio3c;
+
+const
+	dimensionfisica=20;
+
+type
+	vector=array [1..dimensionfisica] of integer;
+
+procedure cargavector (var cargar: vector; var dimensionlogica: integer);
+var
+	numero: integer;
+begin
+	dimensionlogica:=0;
+	writeln ('Ingrese un numero entero: ');
+	readln (numero);
+	while ((dimensionlogica<dimensionfisica) and (numero<>0)) do
+		begin
+			dimensionlogica:=dimensionlogica+1;
+			cargar[dimensionlogica]:=numero;
+			writeln ('Ingrese un numero entero: ');
+			readln (numero);
+		end;
+end;
+
+procedure impresionvector (imprimir: vector; dimensionlogica: integer);
+var
+	i: integer;
+begin
+	for i:=(dimensionlogica div 2) downto 1 do
+		writeln (imprimir[i]);
+	for i:=((dimensionlogica div 2)+1) to dimensionlogica do
+		writeln (imprimir[i]);
+end;
+
+var
+	dimensionlogica: integer;
+	cargar: vector;
+begin
+	cargavector (cargar, dimensionlogica);
+	impresionvector (cargar, dimensionlogica);
+end.
