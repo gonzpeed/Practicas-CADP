@@ -1,0 +1,53 @@
+program Practica4Parte1Ejercicio4a;
+
+const
+	tamano=10;
+
+type
+	vector=array [1..tamano] of integer;
+
+procedure cargar (var vec: vector);
+var
+	i: integer;
+	valor: integer;
+begin
+	for i:=1 to tamano do
+		begin
+			writeln ('Ingrese un numero entero: ');
+			readln (valor);
+			vec[i]:=valor;
+		end;
+end;
+
+function buscar (vec: vector; x: integer): integer;
+var
+	pos: integer;
+	detenerse: boolean;
+begin
+	pos:=1;
+	detenerse:=false;
+	while ((pos<=tamano) and (detenerse=false)) do
+		begin
+			if vec[pos]=x then
+				detenerse:=true
+			else
+				pos:=pos+1;
+		end;
+	if (detenerse=true) then
+		buscar:=pos
+	else
+		buscar:=-1;
+end;
+
+var
+	x: integer;
+	v: vector;
+	posicion: integer;
+
+begin
+	cargar (v);
+	writeln ('Ingrese un numero entero a buscar: ');
+	readln (x);
+	posicion:= buscar (v, x);
+	writeln ('La posicion del numero ', x, ' en el vector es: ', posicion);
+end.
