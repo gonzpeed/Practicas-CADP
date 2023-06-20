@@ -1,0 +1,67 @@
+program Practica6Ejercicio1;
+
+type
+	lista=^nodo;
+	nodo=record
+		num: integer;
+		sig: lista;
+	end;
+
+procedure armarNodo (var L: lista; v: integer);
+var
+	aux: lista;
+begin
+	new(aux);
+	aux^.num:=v;
+	aux^.sig:=L;
+	L:=aux;
+end;
+
+procedure incrementar (var pri: lista);
+var
+	aux: lista;
+	valor: integer;
+begin
+	writeln ('Ingrese un valor a sumar: ');
+	readln (valor);
+	aux:=pri;
+	while (aux^.sig<>nil) do
+		begin
+			aux^.num:=aux^.num+valor;
+			aux:= aux^.sig;
+		end;
+	aux^.num:=aux^.num+valor;
+end;
+
+procedure imprimir (pri: lista);
+var
+	aux: lista;
+begin
+	aux:=pri;
+	while (aux^.sig<>nil) do
+		begin
+			writeln (aux^.num);
+			aux:= aux^.sig;
+		end;
+	writeln (aux^.num);
+end;
+
+var
+	pri: lista;
+	valor: integer;
+	aux: lista;
+
+begin
+	pri:=nil;
+	writeln('Ingrese un numero');
+	read(valor);
+	while (valor<>0) do
+		begin
+			armarNodo(pri, valor);
+			writeln('Ingrese un numero');
+			read(valor);
+		end;
+	incrementar (pri);
+	aux:=pri;
+	imprimir (pri);
+end.
