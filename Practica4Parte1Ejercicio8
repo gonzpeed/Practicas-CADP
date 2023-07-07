@@ -1,0 +1,69 @@
+program Practica4Parte1Ejercicio8;
+
+const
+	tamano=1;
+
+type
+	alumno=record
+		inscripcion: integer;
+		dni: integer;
+		apellido: string;
+		nombre: string;
+		nacimiento: integer;
+	end;
+	vector=array [1..tamano] of alumno;
+
+procedure carga (var vec: vector);
+var
+	i: integer;
+begin
+	for i:=1 to tamano do
+		begin
+			writeln ('Ingrese numero de inscripcion: ');
+			readln (vec[i].inscripcion);
+			writeln ('Ingrese DNI: ');
+			readln (vec[i].dni);
+			writeln ('Ingrese apellido: ');
+			readln (vec[i].apellido);
+			writeln ('Ingrese nombre: ');
+			readln (vec[i].nombre);
+			writeln ('Ingrese año de nacimiento: ');
+			readln (vec[i].nacimiento);
+		end;
+end;
+
+function porcentaje (vec: vector): real;
+var
+	i: integer;
+	dni: integer;
+	digito: integer;
+	contador: integer;
+	par: integer;
+begin
+	par:=0;
+	contador:=0;
+	for i:= 1 to tamano do
+		begin
+			dni:= vec[i].dni;
+			while (dni<>0) do
+				begin
+					digito:=dni mod 10;
+					if (digito mod 2=0) then
+						contador:=contador+1;
+					dni:=dni div 10;
+				end;
+			if (contador=4) then
+				par:=par+1;
+			contador:=0;
+		end;
+	porcentaje:=(par/tamano)*100;
+end;
+				
+
+var
+	v: vector;
+
+begin
+	carga (v);
+	writeln ('El porcentaje es: ', porcentaje (v));
+end.
